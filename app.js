@@ -8,5 +8,6 @@ var app = new Vue({
     image: './assets/socks-green.jpg',
     link: 'http://somewhere.com',
     inventory: 100,
+    onSale: true,
   }
 });
