@@ -8,9 +8,21 @@
   <title>Sock It To Me</title>
 </head>
 <body>
+  <div class="nav-bar"></div>
+
   <div id="app">
-    <h1>{{ product }}</h1>
-    <p>{{ description }}</p>
+    <div class="product">
+
+      <div class="product-image">
+        <img v-bind:src="image" :alt="description">
+      </div>
+
+      <div class="product-info">
+        <h1>{{ product }}</h1>
+        <p>{{ description }}</p>
+      </div>
+
+    </div>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/vue"></script>
   <script type="text/javascript" src="app.js"></script>
