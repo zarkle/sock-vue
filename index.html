@@ -42,6 +42,7 @@
         <a :href="link" target="_blank">More products like this</a>
 
         <button v-on:click="addToCart">Add to Cart</button>
+        <button @click="removeFromCart">Remove from Cart</button>
         <div class="cart">
           <p>Cart ({{ cart }})</p>
         </div>
