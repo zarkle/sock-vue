@@ -7,6 +7,6 @@ var app = new Vue({
     description: 'A pair of warm, fuzzy socks',
     image: './assets/socks-green.jpg',
     link: 'http://somewhere.com',
-    inStock: true,
+    inventory: 100,
   }
 });
