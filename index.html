@@ -36,7 +36,7 @@
 
         <p>Colors Available:</p>
         <div v-for="variant in variants" :key="variant.variantID">
-          <p>{{ variant.variantColor }}</p>
+          <p @mouseover="updateProduct(variant.variantImage)">{{ variant.variantColor }}</p>
         </div>
 
         <a :href="link" target="_blank">More products like this</a>
