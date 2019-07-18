@@ -9,5 +9,6 @@ var app = new Vue({
     link: 'http://somewhere.com',
     inventory: 100,
     onSale: true,
+    details: ['80% cotton', '20% polyester', 'gender-neutral'],
   }
 });
