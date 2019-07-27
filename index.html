@@ -36,10 +36,10 @@
 
         <p>Colors Available:</p>
         <div v-for="variant in variants"
-          :key="variant.variantID"
-          class="color-box"
-          :style="{ backgroundColor: variant.variantColor }"
-          @mouseover="updateProduct(variant.variantImage)">
+             :key="variant.variantID"
+             class="color-box"
+             :style="{ backgroundColor: variant.variantColor }"
+             @mouseover="updateProduct(variant.variantImage)">
         </div>
 
         <a :href="link" target="_blank">More products like this</a>
