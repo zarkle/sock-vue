@@ -45,5 +45,8 @@ var app = new Vue({
     inStock() {
       return this.variants[this.selectedVariant].variantQuantity;
     },
+    sale() {
+      return this.onSale ? `${this.brand} ${this.product} is ON SALE` : 'not on sale';
+    },
   }
 });
