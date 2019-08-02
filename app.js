@@ -3,6 +3,7 @@
 var app = new Vue({
   el: '#app',
   data: {
+    brand: 'SockIt',
     product: 'Socks',
     description: 'A pair of warm, fuzzy socks',
     image: './assets/socks-green.jpg',
@@ -30,5 +31,10 @@ var app = new Vue({
     addToCart() {this.cart += 1;},
     removeFromCart() {this.cart -= 1;},
     updateProduct(variantImage) {this.image = variantImage;},
+  },
+  computed: {
+    title() {
+      return `${this.brand} ${this.product}`;
+    },
   }
 });
