@@ -10,45 +10,44 @@ Vue.component('product', {
   template: `
     <div class="product">
 
-    <div class="product-image">
-      <img v-bind:src="image" :alt="description">
-    </div>
-
-    <div class="product-info">
-      <h1>{{ title }}</h1>
-      <p>{{ description }}</p>
-      <p v-if="inStock">In stock</p>
-      <p v-else :class="{ outOfStock: !inStock }">Out of stock</p>
-      <p>{{ sale }}</p>
-      <p>Shipping: {{ shipping }}</p>
-
-      <ul>
-        <li v-for="detail in details">{{ detail }}</li>
-      </ul>
-
-      <p>Sizes Available:</p>
-      <ul>
-        <li v-for="size in sizes">{{ size }}</li>
-      </ul>
-
-      <p>Colors Available:</p>
-      <div v-for="(variant, index) in variants"
-          :key="variant.variantID"
-          class="color-box"
-          :style="{ backgroundColor: variant.variantColor }"
-          @mouseover="updateProduct(index)">
+      <div class="product-image">
+        <img v-bind:src="image" :alt="description">
       </div>
 
-      <a :href="link" target="_blank">More products like this</a>
+      <div class="product-info">
+        <h1>{{ title }}</h1>
+        <p>{{ description }}</p>
+        <p v-if="inStock">In stock</p>
+        <p v-else :class="{ outOfStock: !inStock }">Out of stock</p>
+        <p>{{ sale }}</p>
+        <p>Shipping: {{ shipping }}</p>
 
-      <button v-on:click="addToCart"
-              :disabled="!inStock"
-              :class="{ disabledButton: !inStock }">
-        Add to Cart
-      </button>
-      <button @click="removeFromCart">Remove from Cart</button>
-      <div class="cart">
-        <p>Cart ({{ cart }})</p>
+        <product-details :details="details"></product-details>
+
+        <p>Sizes Available:</p>
+        <ul>
+          <li v-for="size in sizes">{{ size }}</li>
+        </ul>
+
+        <p>Colors Available:</p>
+        <div v-for="(variant, index) in variants"
+            :key="variant.variantID"
+            class="color-box"
+            :style="{ backgroundColor: variant.variantColor }"
+            @mouseover="updateProduct(index)">
+        </div>
+
+        <a :href="link" target="_blank">More products like this</a>
+
+        <button v-on:click="addToCart"
+                :disabled="!inStock"
+                :class="{ disabledButton: !inStock }">
+          Add to Cart
+        </button>
+        <button @click="removeFromCart">Remove from Cart</button>
+        <div class="cart">
+          <p>Cart ({{ cart }})</p>
+        </div>
       </div>
     </div>
   `,
@@ -104,7 +103,21 @@ Vue.component('product', {
       return this.premium ? 'Free' : '2.99';
     },
   }
-})
+});
+
+Vue.component('product-details', {
+  props: {
+    details: {
+      type: Array,
+      required: true,
+    },
+  },
+  template: `
+    <ul>
+      <li v-for="detail in details">{{ detail }}</li>
+    </ul>
+  `
+});
 
 var app = new Vue({
   el: '#app',
