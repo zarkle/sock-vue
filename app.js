@@ -1,6 +1,12 @@
 'use strict';
 
 Vue.component('product', {
+  props: {
+    premium: {
+      type: Boolean,
+      required: true,
+    },
+  },
   template: `
     <div class="product">
 
@@ -14,6 +20,7 @@ Vue.component('product', {
       <p v-if="inStock">In stock</p>
       <p v-else :class="{ outOfStock: !inStock }">Out of stock</p>
       <p>{{ sale }}</p>
+      <p>User is premium: {{ premium }}</p>
 
       <ul>
         <li v-for="detail in details">{{ detail }}</li>
@@ -98,4 +105,7 @@ Vue.component('product', {
 
 var app = new Vue({
   el: '#app',
+  data: {
+    premium: true,
+  },
 });
